@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>STI UNIERA</title>
+
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================
+           RESET
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f4ef;
+            color: #ffffff;
+        }
+
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        .header {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 22px 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* =====================================
+           LOGO
+        ===================================== */
+
+        .brand {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+
+            color: white;
+        }
+
+
+        .brand img {
+            width: 45px;
+            height: 45px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 2px solid white;
+        }
+
+
+        .brand-text {
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1;
+        }
+
+
+        .brand-text strong {
+            font-size: 20px;
+
+            font-weight: 700;
+        }
+
+
+        .brand-text span {
+            margin-top: 4px;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =====================================
+           MENU
+        ===================================== */
+
+        .nav-menu {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .nav-link,
+        .dropdown-btn {
+            padding: 10px 13px;
+
+            color: white;
+
+            background: transparent;
+
+            border: none;
+
+            text-decoration: none;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+        }
+
+
+        .nav-link:hover,
+        .dropdown-btn:hover {
+            opacity: 0.7;
+        }
+
+
+        /* =====================================
+           DROPDOWN FRAMEWORK
+        ===================================== */
+
+        .dropdown {
+            position: relative;
+        }
+
+
+        .dropdown-content {
+            display: none;
+
+            position: absolute;
+
+            top: 45px;
+
+            left: 0;
+
+            width: 210px;
+
+            padding: 8px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .dropdown-content a {
+            display: block;
+
+            padding: 11px 13px;
+
+            color: #222;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            border-radius: 7px;
+        }
+
+
+        .dropdown-content a:hover {
+            background: #eeeeee;
+        }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /* =====================================
+           MENU KANAN
+        ===================================== */
+
+        .nav-right {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .sign-in {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+
+        .btn-daftar {
+            padding: 11px 18px;
+
+            background: white;
+
+            color: #222;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-daftar:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================
+           MOBILE BUTTON
+        ===================================== */
+
+        .menu-toggle {
+            display: none;
+
+            padding: 8px 11px;
+
+            background: white;
+
+            color: #222;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            background-image:
+                url("developer.webp");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        /* LAPISAN GELAP FOTO */
+
+        .hero-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 24, 20, 0.86),
+                    rgba(20, 24, 20, 0.60),
+                    rgba(20, 24, 20, 0.25)
+                );
+        }
+
+
+        /* =====================================
+           HERO CONTENT
+        ===================================== */
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            width: 1250px;
+
+            max-width: 100%;
+
+            margin: auto;
+
+            padding: 150px 30px 80px;
+        }
+
+
+        /* =====================================
+           LOGO + TITLE
+        ===================================== */
+
+        .hero-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        .hero-logo {
+            width: 110px;
+            height: 110px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .university {
+            margin-bottom: 12px;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            font-weight: 500;
+        }
+
+
+        .hero h1 {
+            max-width: 750px;
+
+            font-size: clamp(48px, 6vw, 78px);
+
+            line-height: 0.98;
+
+            letter-spacing: -3px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================
+           DESKRIPSI
+        ===================================== */
+
+        .hero-description {
+            max-width: 600px;
+
+            margin-top: 30px;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+
+        /* =====================================
+           BUTTON HERO
+        ===================================== */
+
+        .hero-buttons {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+
+        .btn-primary {
+            display: inline-block;
+
+            padding: 14px 23px;
+
+            background: #d7664e;
+
+            color: white;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+
+            background: #c85840;
+        }
+
+
+        .btn-secondary {
+            display: inline-block;
+
+            padding: 14px 23px;
+
+            background: rgba(255, 255, 255, 0.92);
+
+            color: #222;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================
+           INFORMASI BAWAH HERO
+        ===================================== */
+
+        .hero-info {
+            display: flex;
+
+            align-items: center;
+
+            gap: 60px;
+
+            max-width: 750px;
+
+            margin-top: 65px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.3);
+        }
+
+
+        .info-item {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .info-item strong {
+            font-size: 18px;
+        }
+
+
+        .info-item span {
+            font-size: 11px;
+
+            color:
+                rgba(255, 255, 255, 0.65);
+        }
+
+
+        /* =====================================
+           RESPONSIVE TABLET
+        ===================================== */
+
+        @media (max-width: 950px) {
+
+            .nav-menu,
+            .nav-right {
+                display: none;
+            }
+
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .hero-content {
+                padding: 140px 30px 70px;
+            }
+
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+        }
+
+
+        /* =====================================
+           RESPONSIVE HP
+        ===================================== */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 18px 20px;
+            }
+
+
+            .brand img {
+                width: 40px;
+                height: 40px;
+            }
+
+
+            .brand-text strong {
+                font-size: 17px;
+            }
+
+
+            .hero-content {
+                padding: 130px 20px 55px;
+            }
+
+
+            .hero-title {
+                gap: 14px;
+            }
+
+
+            .hero-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+
+            .university {
+                font-size: 10px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 8px;
+            }
+
+
+            .hero h1 {
+                font-size: 40px;
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero-description {
+                margin-top: 25px;
+
+                font-size: 14px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .hero-info {
+                gap: 25px;
+
+                flex-wrap: wrap;
+
+                margin-top: 45px;
+            }
+
+
+            .info-item strong {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="header">
+
+        <div class="navbar">
+
+
+            <!-- LOGO STI UNIERA -->
+
+            <a href="#" class="brand">
+
+                <img
+                    src="c:\Users\stiun\Downloads\WhatsApp Image 2026-10-01 at 10.48.55.jpeg"
+                    alt="Logo STI Uniera"
+                >
+
+                <div class="brand-text">
+
+                    <strong>STI</strong>
+
+                    <span>UNIERA</span>
+
+                </div>
+
+            </a>
+
+
+            <!-- MENU -->
+
+            <nav class="nav-menu">
+
+
+                <!-- FRAMEWORK -->
+
+                <div class="dropdown">
+
+                    <button
+                        class="dropdown-btn"
+                    >
+
+                        Framework
+
+                        <span>⌄</span>
+
+                    </button>
+
+
+                    <div class="dropdown-content">
+
+                        <a href="#">
+                            Profil Program Studi
+                        </a>
+
+                        <a href="#">
+                            Kurikulum
+                        </a>
+
+                        <a href="#">
+                            Visi & Misi
+                        </a>
+
+                        <a href="#">
+                            Kontak
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MENU 2 -->
+
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    Products
+                </a>
+
+
+                <!-- MENU 3 -->
+
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    Resources
+                </a>
+
+
+                <!-- MENU 4 -->
+
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    Events
+                </a>
+
+
+                <!-- MENU 5 -->
+
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    Docs
+                </a>
+
+            </nav>
+
+
+            <!-- MENU KANAN -->
+
+            <div class="nav-right">
+
+                <a
+                    href="#"
+                    class="sign-in"
+                >
+                    Sign in
+                </a>
+
+
+                <a
+                    href="#"
+                    class="btn-daftar"
+                >
+                    Daftar →
+                </a>
+
+            </div>
+
+
+            <!-- MENU MOBILE -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO / HALAMAN UTAMA
+    ====================================== -->
+
+    <section class="hero">
+
+
+        <!-- OVERLAY -->
+
+        <div class="hero-overlay"></div>
+
+
+        <!-- CONTENT -->
+
+        <div class="hero-content">
+
+
+            <!-- LOGO + TITLE -->
+
+            <div class="hero-title">
+
+
+                <img
+                    src="c:\Users\stiun\Downloads\WhatsApp Image 2026-10-01 at 10.48.55.jpeg"
+                    alt="Logo Sistem dan Teknologi Informasi"
+                    class="hero-logo"
+                >
+
+
+                <div>
+
+                    <p class="university">
+                        UNIVERSITAS HALMAHERA
+                    </p>
+
+
+                    <h1>
+                        Sistem dan<br>
+                        Teknologi Informasi.
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESKRIPSI -->
+
+            <p class="hero-description">
+
+                Membangun generasi muda yang kreatif,
+                inovatif, dan mampu memanfaatkan teknologi
+                informasi untuk menghadapi perkembangan
+                dunia digital.
+
+            </p>
+
+
+            <!-- BUTTON -->
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#"
+                    class="btn-primary"
+                >
+                    Daftar →
+                </a>
+
+
+                <a
+                    href="#"
+                    class="btn-secondary"
+                >
+                    Pelajari Lebih Lanjut
+                </a>
+
+            </div>
+
+
+            <!-- INFORMASI -->
+
+            <div class="hero-info">
+
+
+                <div class="info-item">
+
+                    <strong>STI</strong>
+
+                    <span>
+                        Program Studi
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>UNIERA</strong>
+
+                    <span>
+                        Universitas Halmahera
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>IT</strong>
+
+                    <span>
+                        Teknologi Informasi
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navMenu =
+            document.querySelector(".nav-menu");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    navMenu.style.display === "flex"
+                ) {
+
+                    navMenu.style.display = "none";
+
+                }
+
+                else {
+
+                    navMenu.style.display = "flex";
+
+                    navMenu.style.flexDirection =
+                        "column";
+
+                    navMenu.style.position =
+                        "absolute";
+
+                    navMenu.style.top =
+                        "75px";
+
+                    navMenu.style.left =
+                        "20px";
+
+                    navMenu.style.right =
+                        "20px";
+
+                    navMenu.style.padding =
+                        "15px";
+
+                    navMenu.style.background =
+                        "rgba(20, 20, 20, 0.96)";
+
+                    navMenu.style.borderRadius =
+                        "12px";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
